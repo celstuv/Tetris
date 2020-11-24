@@ -1,3 +1,9 @@
+body {
+  background: #2980B9;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .container {
 display: flex;
 }
@@ -8,11 +14,6 @@ height: 400px;
 display: flex;
 flex-wrap: wrap;
 /* background-color: yellow; */
-background: #bdc3c7;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-border-radius: 5%;
-border:3px solid darkgrey;
 }
 
 .grid div {
@@ -31,12 +32,7 @@ width: 80px;
 height: 80px;
 display: flex;
 flex-wrap: wrap;
-/* background-color: yellow; */
-background: #bdc3c7;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-border-radius: 5%;
-border:3px solid darkgrey;
+background-color: yellow;
 
 }
 
