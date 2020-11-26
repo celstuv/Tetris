@@ -8,12 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let nextRandom = 0
   let timerId
   let score = 0
-  const colors = [
-    'orange',
-    'red',
-    'purple',
-    'green',
-    'blue'
+  const colors = [ // Sun Safe 3 Color Palette
+    '#f3e1ad', // orange
+    '#7ef52d', // red
+    '#f09f72',
+    '#45b4ec', // violet
+    '#f49ac1', // green
+    '#e1adf3' // blue
   ]
   // console.log(squares);
 
@@ -30,6 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
     [width + 1, width + 2, width * 2, width * 2 + 1],
     [0, width, width + 1, width * 2 + 1],
     [width + 1, width + 2, width * 2, width * 2 + 1]
+  ]
+
+  const zTetrominobis = [
+    [width, width + 1, width * 2 + 1, width * 2 + 2],
+    [2, width + 2, width + 1, width * 2 + 1],
+    [width, width + 1, width * 2 + 1, width * 2 + 2],
+    [2, width + 2, width + 1, width * 2 + 1]
   ]
 
   const tTetromino = [
@@ -53,9 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
     [width, width + 1, width + 2, width + 3]
   ]
 
-  const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
+  const theTetrominoes = [lTetromino, zTetromino, zTetrominobis, tTetromino, oTetromino, iTetromino]
 
-  let currentPosition = 4
+  let currentPosition = 5
   let currentRotation = 0
 
   // Sélectionnons au hasard  un tétromino et voyons sa rotation
@@ -161,11 +169,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Les tétrominos n'auront pas de rotation dans la mini-grid
   const upNextTetrominoes = [
-    [1, displayWidth + 1, displayWidth * 2 + 1, 2], //lTetromino
-    [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], //zTetromino
-    [1, displayWidth, displayWidth + 1, displayWidth + 2], //tTetromino
-    [0, 1, displayWidth, displayWidth + 1], //oTetromino
-    [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1] //iTetromino
+    [1, displayWidth + 1, displayWidth * 2 + 1, 2], // lTetromino
+    [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], // zTetromino
+    [displayWidth, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 2 + 2], // zTetrominobis
+    [1, displayWidth, displayWidth + 1, displayWidth + 2], // tTetromino
+    [0, 1, displayWidth, displayWidth + 1], // oTetromino
+    [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1] // iTetromino
   ]
 
   // Faire disparaître la forme dans la mini-grid
@@ -178,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     upNextTetrominoes[nextRandom].forEach(index => {
       displaySquares[displayIndex + index].classList.add('tetromino')
       displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
+
     })
   }
 
