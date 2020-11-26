@@ -9,12 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let timerId
   let score = 0
   const colors = [ // Sun Safe 3 Color Palette
-    '#f3e1ad', // orange
-    '#7ef52d', // red
-    '#f09f72',
-    '#45b4ec', // violet
-    '#f49ac1', // green
-    '#e1adf3' // blue
+    '#f3e1ad', // beige
+    '#e75480', // bordeau
+    '#7ef52d', // green
+    '#f09f72', // orange
+    '#45b4ec', // bleu
+    '#f49ac1', // rose
+    '#e1adf3' // violet
   ]
   // console.log(squares);
 
@@ -24,6 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
     [width, width + 1, width + 2, width * 2 + 2],
     [1, width + 1, width * 2 + 1, width * 2],
     [width, width * 2, width * 2 + 1, width * 2 + 2]
+  ]
+  const lTetrominobis = [
+    [0, 1, width + 1, width * 2 + 1],
+    [width * 2, width, width + 1, width + 2],
+    [1, width + 1, width * 2 + 1, width * 2 + 2],
+    [2, width, width + 1, width + 2]
   ]
 
   const zTetromino = [
@@ -61,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
     [width, width + 1, width + 2, width + 3]
   ]
 
-  const theTetrominoes = [lTetromino, zTetromino, zTetrominobis, tTetromino, oTetromino, iTetromino]
+  const theTetrominoes = [lTetromino, lTetrominobis, zTetromino, zTetrominobis, tTetromino, oTetromino, iTetromino]
 
-  let currentPosition = 5
+  let currentPosition = 4
   let currentRotation = 0
 
   // Sélectionnons au hasard  un tétromino et voyons sa rotation
@@ -170,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Les tétrominos n'auront pas de rotation dans la mini-grid
   const upNextTetrominoes = [
     [1, displayWidth + 1, displayWidth * 2 + 1, 2], // lTetromino
+    [0, 1, displayWidth + 1, displayWidth * 2 + 1], // lTetrominobis
     [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], // zTetromino
     [displayWidth, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 2 + 2], // zTetrominobis
     [1, displayWidth, displayWidth + 1, displayWidth + 2], // tTetromino
